@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasi Bakar Jawa 64 - Lezat & Terjangkau</title>
+    <style>
+        /* Reset dan dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5e9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #8b0000, #a52a2a);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Navigasi */
+        nav {
+            background-color: #5a0d0d;
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Konten Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #8b0000;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0e6d2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            color: #8b0000;
+        }
+        
+        /* Menu */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .menu-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+        
+        .menu-img {
+            height: 180px;
+            background-color: #f0e6d2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .menu-item:hover .menu-img img {
+            transform: scale(1.05);
+        }
+        
+        .menu-content {
+            padding: 1.2rem;
+        }
+        
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #5a0d0d;
+        }
+        
+        .menu-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #8b0000;
+            margin-bottom: 0.8rem;
+        }
+        
+        .menu-desc {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Lokasi */
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .address-card {
+            background-color: #f9f5e9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b0000;
+        }
+        
+        .map-container {
+            height: 250px;
+            background-color: #f0e6d2;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+            position: relative;
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .map-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(90, 13, 13, 0.8);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #5a0d0d;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Responsif */
+        @media (min-width: 768px) {
+            .location-info {
+                flex-direction: row;
+            }
+            
+            .address-card {
+                flex: 1;
+            }
+            
+            .map-container {
+                flex: 1;
+                margin-top: 0;
+            }
+        }
+        
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        /* Modal untuk foto */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 2%;
+            object-fit: contain;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #ccc;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-fire logo-icon"></i>
+            <span>Nasi Bakar Jawa 64</span>
+        </div>
+        <p class="tagline">Lezat, Gurih, dan Terjangkau</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#menu"><i class="fas fa-utensils"></i> Menu</a></li>
+            <li><a href="#lokasi"><i class="fas fa-map-marker-alt"></i> Lokasi</a></li>
+            <li><a href="#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="menu" class="fade-in">
+            <h2><i class="fas fa-utensils"></i> Menu Kami</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <!-- Ganti URL gambar di sini -->
+                        <img src="nasituna.jpg" alt="Nasi Bakar Tuna">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Nasi Bakar Tuna</h3>
+                        <p class="menu-price">Rp 15.000</p>
+                        <p class="menu-desc">Nasi bakar dengan isian tuna segar yang dibumbui rempah pilihan, dibungkus daun pisang dan dipanggang hingga harum.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <!-- Ganti URL gambar di sini -->
+                        <img src="nasi.jpg" alt="Nasi Bakar Ayam Rica">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Nasi Bakar Ayam Rica</h3>
+                        <p class="menu-price">Rp 12.000</p>
+                        <p class="menu-desc">Ayam rica pedas yang gurih dipadukan dengan nasi pulen, dibungkus daun pisang dan dipanggang sempurna.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <!-- Ganti URL gambar di sini -->
+                        <img src="nasitelur.jpg" alt="Nasi Bakar Tempe Telur Sin">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Nasi Bakar Tempe Telur Sin</h3>
+                        <p class="menu-price">Rp 10.000</p>
+                        <p class="menu-desc">Perpaduan tempe dan telur dengan bumbu spesial, memberikan cita rasa yang unik dan lezat.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <!-- Ganti URL gambar di sini -->
+                        <img src="nasiteri.webp" alt="Nasi Bakar Ijo Teri">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Nasi Bakar Ijo Teri</h3>
+                        <p class="menu-price">Rp 10.000</p>
+                        <p class="menu-desc">Nasi bakar dengan sambal ijo dan teri medan yang renyah, memberikan sensasi pedas dan gurih.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="lokasi" class="fade-in">
+            <h2><i class="fas fa-map-marker-alt"></i> Lokasi Kami</h2>
+            <div class="location-info">
+                <div class="address-card">
+                    <h3>Alamat</h3>
+                    <p><i class="fas fa-map-pin"></i> Jalan Jawa No. 64</p>
+                    <p><i class="fas fa-clock"></i> Buka setiap hari: 10.00 - 21.00 WIB</p>
+                    <p><i class="fas fa-motorcycle"></i> Tersedia layanan pesan antar (GOJEK & GRAB)</p>
+                </div>
+                
+                <div class="map-container">
+                    <!-- Ganti URL gambar peta/lokasi di sini -->
+                    <img src="depan.jpg" alt="Lokasi Nasi Bakar Jawa 64" id="foto-lokasi">
+                    <div class="map-overlay">
+                        <p><i class="fas fa-map-marker-alt"></i> Jalan Jawa No. 64</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tentang" class="fade-in">
+            <h2><i class="fas fa-info-circle"></i> Tentang Kami</h2>
+            <p>Nasi Bakar Jawa 64 hadir sejak 2015 dengan konsep nasi bakar yang lezat dan terjangkau. Kami menggunakan bahan-bahan segar dan bumbu pilihan untuk memberikan cita rasa autentik yang menggugah selera.</p>
+            <p>Setiap hidangan kami dimasak dengan penuh cinta dan perhatian terhadap detail, memastikan setiap pelanggan mendapatkan pengalaman kuliner yang memuaskan.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Nasi Bakar Jawa 64. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- Modal untuk foto -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Animasi scroll halus untuk navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animasi fade in saat scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        // Set initial state for fade elements
+        fadeElements.forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Fungsi untuk mengganti foto
+        function gantiFoto(elementId, urlGambarBaru) {
+            const imgElement = document.getElementById(elementId);
+            if (imgElement) {
+                imgElement.src = urlGambarBaru;
+            }
+        }
+        
+        // Fungsi untuk modal foto
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        
+        // Buka modal saat gambar diklik (menu dan lokasi)
+        document.querySelectorAll('.menu-img img, .map-container img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            });
+        });
+        
+        // Tutup modal
+        document.querySelector('.close').addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+        
+        // Tutup modal saat klik di luar gambar
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+        
+        // Contoh penggunaan fungsi gantiFoto
+        // Untuk menggunakan, panggil fungsi ini di console browser:
+        // gantiFoto('foto-lokasi', 'URL_GAMBAR_BARU');
+    </script>
+</body>
+</html>
